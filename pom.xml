@@ -6,6 +6,7 @@
     <modules>
         <module>leetcode</module>
         <module>design-mode</module>
+        <module>test-demo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
