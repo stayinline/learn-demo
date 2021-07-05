@@ -11,9 +11,8 @@ public class Case739 {
         int len = t.length;
         int[] ret = new int[len];
         for (int i = 0; i < len; i++) {
-            int curMin = Integer.MAX_VALUE;
             for (int j = i + 1; j < len; j++) {
-                if (t[i] < t[j] && curMin > t[j]) {
+                if (t[i] < t[j]) {
                     ret[i] = j - i;
                     break;
                 }

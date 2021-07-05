@@ -9,6 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
@@ -20,10 +21,11 @@ public class ClientDemo {
     private final ByteBuffer sendBuffer = ByteBuffer.allocate(1024);
     private final ByteBuffer receiveBuffer = ByteBuffer.allocate(1024);
     private Selector selector;
+    private static int PORT = 8080;
 
     public ClientDemo() throws IOException {
         SocketChannel socketChannel = SocketChannel.open();
-        socketChannel.connect(new InetSocketAddress(InetAddress.getLocalHost(), 8080));
+        socketChannel.connect(new InetSocketAddress(InetAddress.getLocalHost(), PORT));
         socketChannel.configureBlocking(false);
         System.out.println("与服务器的连接建立成功");
         selector = Selector.open();

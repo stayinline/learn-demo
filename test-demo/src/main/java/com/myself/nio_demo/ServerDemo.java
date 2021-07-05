@@ -16,15 +16,14 @@ public class ServerDemo {
     private ByteBuffer readBuffer = ByteBuffer.allocateDirect(1024);
     private ByteBuffer writeBuffer = ByteBuffer.allocateDirect(1024);
     private Selector selector;
+    private static int PORT = 8080;
 
-    public ServerDemo() throws IOException {
+    private ServerDemo() throws IOException {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        serverSocketChannel.socket().bind(new InetSocketAddress(PORT));
         serverSocketChannel.configureBlocking(false);
-        serverSocketChannel.socket().bind(new InetSocketAddress(8080));
-        System.out.println("listening on port 8080");
-
+        System.out.println("listening on port " + PORT);
         this.selector = Selector.open();
-
         // 绑定channel的accept
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
     }
@@ -45,7 +44,7 @@ public class ServerDemo {
                 iterator.remove();
                 // 新连接
                 if (selectionKey.isAcceptable()) {
-                    System.out.println("isAcceptable");
+                    System.out.println("the channel is Acceptable");
                     ServerSocketChannel server = (ServerSocketChannel) selectionKey.channel();
 
                     // 新注册channel
