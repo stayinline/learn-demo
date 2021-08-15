@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/concurrent-learn/concurrent-learn.iml" filepath="$PROJECT_DIR$/concurrent-learn/concurrent-learn.iml" />
       <module fileurl="file://$PROJECT_DIR$/design-mode/design-mode.iml" filepath="$PROJECT_DIR$/design-mode/design-mode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/juc-learn/juc-learn.iml" filepath="$PROJECT_DIR$/juc-learn/juc-learn.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/learn-demo.iml" filepath="$PROJECT_DIR$/.idea/learn-demo.iml" />
     </modules>
   </component>

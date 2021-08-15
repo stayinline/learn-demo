@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
     <modules>
         <module>design-mode</module>
-        <module>juc-learn</module>
+        <module>concurrent-learn</module>
     </modules>
     <packaging>pom</packaging>
 
