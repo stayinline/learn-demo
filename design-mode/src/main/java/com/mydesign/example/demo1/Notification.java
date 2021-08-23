@@ -1,11 +1,9 @@
-package com.mydesign.example.ocp.demo1;
+package com.mydesign.example.demo1;
 
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author hemaoling
  */
-@Slf4j
 public class Notification {
 
     public void notifyMsg(NotiNotificationEmergencyLevelEnum levelEnum, String msg) {

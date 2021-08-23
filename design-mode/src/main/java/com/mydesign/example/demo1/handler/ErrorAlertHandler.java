@@ -1,9 +1,9 @@
-package com.mydesign.example.ocp.demo1.handler;
+package com.mydesign.example.demo1.handler;
 
-import com.mydesign.example.ocp.demo1.ApiStatInfo;
-import com.mydesign.example.ocp.demo1.NotiNotificationEmergencyLevelEnum;
-import com.mydesign.example.ocp.demo1.Notification;
-import com.mydesign.example.ocp.demo1.AlertRule;
+import com.mydesign.example.demo1.ApiStatInfo;
+import com.mydesign.example.demo1.NotiNotificationEmergencyLevelEnum;
+import com.mydesign.example.demo1.Notification;
+import com.mydesign.example.demo1.AlertRule;
 
 /**
  * @author hemaoling

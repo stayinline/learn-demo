@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/concurrent-learn/concurrent-learn.iml" filepath="$PROJECT_DIR$/concurrent-learn/concurrent-learn.iml" />
       <module fileurl="file://$PROJECT_DIR$/design-mode/design-mode.iml" filepath="$PROJECT_DIR$/design-mode/design-mode.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/learn-demo.iml" filepath="$PROJECT_DIR$/.idea/learn-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/production/production.iml" filepath="$PROJECT_DIR$/production/production.iml" />
     </modules>
   </component>
 </project>

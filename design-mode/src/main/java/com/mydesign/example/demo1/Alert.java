@@ -1,6 +1,6 @@
-package com.mydesign.example.ocp.demo1;
+package com.mydesign.example.demo1;
 
-import com.mydesign.example.ocp.demo1.handler.AlertHandler;
+import com.mydesign.example.demo1.handler.AlertHandler;
 
 import java.util.ArrayList;
 import java.util.List;

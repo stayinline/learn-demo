@@ -1,4 +1,4 @@
-package com.mydesign.example.ocp.demo1;
+package com.mydesign.example.demo1;
 
 /**
  * @author hemaoling

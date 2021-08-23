@@ -1,7 +1,7 @@
-package com.mydesign.example.ocp.demo1;
+package com.mydesign.example.demo1;
 
-import com.mydesign.example.ocp.demo1.handler.ErrorAlertHandler;
-import com.mydesign.example.ocp.demo1.handler.TpsAlertHandler;
+import com.mydesign.example.demo1.handler.ErrorAlertHandler;
+import com.mydesign.example.demo1.handler.TpsAlertHandler;
 
 
 /**

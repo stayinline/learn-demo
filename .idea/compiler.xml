@@ -2,16 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="production" />
+        <module name="concurrent-learn" />
         <module name="design-mode" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="design-mode" target="1.7" />
-      <module name="learn-demo" target="1.7" />
+      <module name="concurrent-learn" target="1.7" />
+      <module name="design-mode" target="1.8" />
+      <module name="learn-demo" target="1.8" />
+      <module name="production" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
