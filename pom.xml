@@ -11,6 +11,7 @@
         <module>design-mode</module>
         <module>concurrent-learn</module>
         <module>production</module>
+        <module>concurrent222-learn</module>
     </modules>
     <packaging>pom</packaging>
 

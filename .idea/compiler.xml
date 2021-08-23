@@ -13,10 +13,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="concurrent-learn" target="1.7" />
+      <module name="concurrent-learn" target="1.8" />
+      <module name="concurrent222learn" target="1.8" />
       <module name="design-mode" target="1.8" />
       <module name="learn-demo" target="1.8" />
-      <module name="production" target="1.5" />
+      <module name="production" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
