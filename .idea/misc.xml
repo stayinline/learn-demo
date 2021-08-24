@@ -8,7 +8,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/concurrent-learn" />
     <file type="web" url="file://$PROJECT_DIR$/concurrent222-learn" />
-    <file type="web" url="file://$PROJECT_DIR$/design-mode" />
+    <file type="web" url="file://$PROJECT_DIR$/design-pattern" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
