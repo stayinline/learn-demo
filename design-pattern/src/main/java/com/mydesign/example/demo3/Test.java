@@ -1,13 +1,22 @@
 package com.mydesign.example.demo3;
 
-import com.mydesign.example.factory.factory_method.CommonReq;
-
 
 public class Test {
 
     public void yourMethod(CommonReq req) {
         String serviceInfo = getServiceInfo();
         boolean checkRet = checkReq(req, serviceInfo);
+        if (!checkRet) {
+            System.out.println("校验未通过");
+            return;
+        }
+        // deal you business
+
+    }
+
+    public void yourMethod2(CommonReq req) {
+        String serviceInfo = getServiceInfo();
+        boolean checkRet = ServiceStrategy.getService(serviceInfo).checkReq(req);
         if (!checkRet) {
             System.out.println("校验未通过");
             return;
@@ -49,5 +58,9 @@ public class Test {
 
     private String getServiceInfo() {
         return "A";
+    }
+
+    public static void main(String[] args) {
+        new Test().yourMethod2(new CommonReq());
     }
 }
