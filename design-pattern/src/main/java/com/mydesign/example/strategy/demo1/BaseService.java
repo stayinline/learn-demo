@@ -1,4 +1,4 @@
-package com.mydesign.example.demo3;
+package com.mydesign.example.strategy.demo1;
 
 public interface BaseService {
 
