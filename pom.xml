@@ -8,10 +8,9 @@
   <artifactId>learn-demo</artifactId>
   <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>design-mode</module>
+        <module>design-pattern</module>
         <module>concurrent-learn</module>
         <module>production</module>
-        <module>concurrent222-learn</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -10,7 +10,7 @@
         <groupId>com.myself.learn</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>design-mode</artifactId>
+    <artifactId>design-pattern</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
