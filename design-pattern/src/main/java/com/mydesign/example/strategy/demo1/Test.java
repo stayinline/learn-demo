@@ -3,9 +3,10 @@ package com.mydesign.example.strategy.demo1;
 
 public class Test {
 
-    public void yourMethod(CommonReq req) {
+
+    public void yourMethod2(CommonReq req) {
         String serviceInfo = getServiceInfo();
-        boolean checkRet = checkReq(req, serviceInfo);
+        boolean checkRet = ServiceStrategy.getService(serviceInfo).checkReq(req);
         if (!checkRet) {
             System.out.println("校验未通过");
             return;
@@ -14,9 +15,9 @@ public class Test {
 
     }
 
-    public void yourMethod2(CommonReq req) {
+    public void yourMethod(CommonReq req) {
         String serviceInfo = getServiceInfo();
-        boolean checkRet = ServiceStrategy.getService(serviceInfo).checkReq(req);
+        boolean checkRet = checkReq(req, serviceInfo);
         if (!checkRet) {
             System.out.println("校验未通过");
             return;
@@ -61,6 +62,16 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        new Test().yourMethod2(new CommonReq());
+//        new Test().yourMethod2(new CommonReq());
+        test();
+    }
+
+    private static boolean test() {
+        try {
+            System.out.println("rqwerqerqer");
+            return true;
+        } finally {
+            System.out.println("412412341234");
+        }
     }
 }
