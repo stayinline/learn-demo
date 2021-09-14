@@ -1,6 +1,5 @@
 package concurrency_in_pritace.demo1;
 
-import javax.lang.model.element.VariableElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
