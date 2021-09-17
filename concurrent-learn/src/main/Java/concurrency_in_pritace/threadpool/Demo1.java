@@ -19,7 +19,7 @@ public class Demo1 {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
     }
 
-    static class DoundedExecuor {
+    static class BoundedExecutor {
 
         private Executor executor;
         private final Semaphore semaphore;
@@ -31,7 +31,7 @@ public class Demo1 {
          * @param executor
          * @param bounded
          */
-        DoundedExecuor(Executor executor, int bounded) {
+        BoundedExecutor(Executor executor, int bounded) {
             this.executor = executor;
             this.semaphore = new Semaphore(bounded);
         }

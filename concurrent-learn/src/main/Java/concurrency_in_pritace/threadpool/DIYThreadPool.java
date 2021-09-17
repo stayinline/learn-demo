@@ -15,8 +15,8 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class DIYThreadPool extends ThreadPoolExecutor {
 
-    private static final ThreadLocal<Long> startTime = new ThreadLocal<>();
-
+    private static final ThreadLocal<Long> START_TIME = new ThreadLocal<>();
+    
     private final AtomicLong totalTime = new AtomicLong();
 
     public DIYThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,
@@ -28,7 +28,7 @@ public class DIYThreadPool extends ThreadPoolExecutor {
     protected void beforeExecute(Thread t, Runnable r) {
         super.beforeExecute(t, r);
 
-        startTime.set(System.nanoTime());
+        START_TIME.set(System.nanoTime());
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DIYThreadPool extends ThreadPoolExecutor {
 
         try {
             long endTime = System.nanoTime();
-            long execTime = endTime - startTime.get();
+            long execTime = endTime - START_TIME.get();
             totalTime.addAndGet(execTime);
             System.out.println("线程的总执行时长：" + execTime + " ns");
 
@@ -52,6 +52,6 @@ public class DIYThreadPool extends ThreadPoolExecutor {
     @Override
     protected void terminated() {
         super.terminated();
-        startTime.remove();
+        START_TIME.remove();
     }
 }
