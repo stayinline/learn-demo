@@ -1,7 +1,9 @@
 package concurrency_in_pritace.part14.demo1;
 
+import concurrency_in_pritace.part14.BaseBoundedBuffer;
+
 /**
- * 是一个错误示例
+ * v1: 是一个错误示例
  *
  * @author hemaoling
  */

@@ -1,4 +1,4 @@
-package concurrency_in_pritace.part14.demo1;
+package concurrency_in_pritace.part14;
 
 
 /**
