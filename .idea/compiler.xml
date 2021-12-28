@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="production" />
         <module name="concurrent-learn" />
-        <module name="ioc-learn" />
         <module name="design-mode" />
       </profile>
     </annotationProcessing>

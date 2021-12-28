@@ -1,13 +1,16 @@
 package com.mydesign.example.template_method;
 
 /**
+ * 模板方法模式
+ *
  * @author hemaoling
  */
 public abstract class AbstractParentClass {
 
     /**
-     * 这个模板方法由父类定义并实现，固定步骤的执行某些方法
-     * 然后将扩展点方法交给子类实现
+     * 这个模板方法由父类定义并实现，固定步骤的执行某些方法，构成算法骨架
+     * 然后将扩展点方法交给子类实现，由子类控制实现想要的逻辑，
+     * 就达到了不改变父类骨架的方式改变某些行为
      */
     public final void templateMethod() {
         /*
