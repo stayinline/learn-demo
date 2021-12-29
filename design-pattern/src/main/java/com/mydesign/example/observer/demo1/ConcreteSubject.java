@@ -3,6 +3,9 @@ package com.mydesign.example.observer.demo1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author hemaoling
+ */
 public class ConcreteSubject implements Subject {
 
     private List<Observer> observerList = new ArrayList<>();

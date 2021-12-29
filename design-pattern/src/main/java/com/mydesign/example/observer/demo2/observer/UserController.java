@@ -1,7 +1,6 @@
 package com.mydesign.example.observer.demo2.observer;
 
 
-import com.mydesign.example.observer.demo2.bad.PromotionService;
 import com.mydesign.example.observer.demo2.bad.UserService;
 
 import javax.annotation.Resource;
