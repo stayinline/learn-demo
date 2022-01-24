@@ -11,6 +11,7 @@
         <module>design-pattern</module>
         <module>concurrent-learn</module>
         <module>production</module>
+        <module>java8-test</module>
     </modules>
     <packaging>pom</packaging>
 

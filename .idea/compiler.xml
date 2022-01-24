@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="production" />
         <module name="concurrent-learn" />
+        <module name="java8-test" />
         <module name="design-mode" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="design-mode" target="1.8" />
       <module name="design-pattern" target="1.8" />
       <module name="ioc-learn" target="1.8" />
+      <module name="java8-test" target="1.8" />
       <module name="learn-demo" target="1.8" />
       <module name="production" target="1.8" />
       <module name="spring-learn" target="1.8" />
