@@ -32,6 +32,7 @@ public class ConsumerDemo {
          */
 
         //为何会不生效？
+        //因为Integer是final的，这里传递的是值，而不是引用
     }
 
     private static void foreach1(List<Integer> list, Consumer<Integer> c) {
