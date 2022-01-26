@@ -10,13 +10,12 @@
         <module name="production" />
         <module name="concurrent-learn" />
         <module name="java8-test" />
-        <module name="design-mode" />
+        <module name="design-pattern" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="concurrent-learn" target="1.8" />
       <module name="concurrent222learn" target="1.8" />
-      <module name="design-mode" target="1.8" />
       <module name="design-pattern" target="1.8" />
       <module name="ioc-learn" target="1.8" />
       <module name="java8-test" target="1.8" />
