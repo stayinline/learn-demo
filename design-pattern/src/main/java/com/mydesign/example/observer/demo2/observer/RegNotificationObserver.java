@@ -2,7 +2,10 @@ package com.mydesign.example.observer.demo2.observer;
 
 import javax.annotation.Resource;
 
-public class RegNotifucationObserver implements RegObserver {
+/**
+ * @author hemaoling
+ */
+public class RegNotificationObserver implements RegObserver {
 
     @Resource
     protected NotificationService notificationService;
