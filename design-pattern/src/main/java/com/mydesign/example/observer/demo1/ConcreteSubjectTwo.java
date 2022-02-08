@@ -4,6 +4,6 @@ public class ConcreteSubjectTwo implements Observer {
 
     @Override
     public void update(Message message) {
-        System.out.println("ConcreteSubjectTwo is notified!!!");
+        System.out.println("ConcreteSubject-Two is notified!!!");
     }
 }

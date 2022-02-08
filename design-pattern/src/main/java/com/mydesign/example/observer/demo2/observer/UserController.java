@@ -24,7 +24,7 @@ public class UserController {
      * 这里采用观察者模式，将一堆需要被通知的对象放在一起，然后逐个执行这个接口的通知方法，
      * 实现了解耦
      */
-    List<RegObserver> regObservers = new ArrayList<>();
+    static List<RegObserver> regObservers = new ArrayList<>();
 
 
     @Resource
@@ -32,15 +32,38 @@ public class UserController {
 
 
     /**
+     * 需要先调用这个方法初始化所有的观察者
+     * 后续有需要新增的观察者，也通过这个方法添加进来
+     *
+     * @param observers
+     */
+    public void setObservers(List<RegObserver> observers) {
+        regObservers.addAll(observers);
+    }
+
+
+    /**
+     * 然后在业务中被使用的地方遍历通知所有观察者
+     *
      * @param telephone
      * @param password
      * @return
      */
     public Long register(String telephone, String password) {
+        // 1、初始化和注册观察者
+        List<RegObserver> observers = new ArrayList<>();
+        observers.add(new RegNotificationObserver());
+        observers.add(new RegPromotionObserver());
+        setObservers(observers);
+
+        // 2、执行观察者所关注的那个动作
         Long userId = userService.register(telephone, password);
 
-        for (RegObserver regObserver : regObservers) {
-            regObserver.handleRegSuccess(userId);
+        if (null != userId) {
+            // 3、动作执行成功后通知观察者
+            for (RegObserver regObserver : regObservers) {
+                regObserver.handleRegSuccess(userId);
+            }
         }
 
         return userId;
