@@ -8,22 +8,6 @@ import java.util.Map;
  */
 public class ServiceStrategy {
 
-
-    /*
-     * 基于接口实现的策略
-     */
-//    private static Map<String, BaseService> map = new HashMap<>();
-//
-//    static {
-//        map.put("A", new ServiceA());
-//        map.put("B", new ServiceB());
-//    }
-//
-//    public static BaseService getService(String serviceInfo) {
-//        return map.get(serviceInfo);
-//    }
-
-
     /**
      * 基于抽象类实现的策略
      */

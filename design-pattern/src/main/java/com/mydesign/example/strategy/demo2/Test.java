@@ -1,7 +1,11 @@
-package com.mydesign.example.strategy.demo1;
+package com.mydesign.example.strategy.demo2;
+
+
+import com.mydesign.example.strategy.demo1.CommonReq;
+
 
 /**
- * 基于抽象类的策略模式
+ * 基于接口的策略模式
  */
 public class Test {
 
@@ -16,6 +20,7 @@ public class Test {
         // deal you business
 
     }
+
 
     private String getServiceInfo() {
         return "A";
