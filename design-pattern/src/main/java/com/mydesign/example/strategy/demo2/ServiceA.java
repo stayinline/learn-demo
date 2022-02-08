@@ -1,6 +1,5 @@
 package com.mydesign.example.strategy.demo2;
 
-import com.mydesign.example.strategy.demo1.AbstractServiceCheck;
 import com.mydesign.example.strategy.demo1.CommonReq;
 
 /**

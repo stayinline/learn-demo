@@ -7,6 +7,11 @@ import com.mydesign.example.strategy.demo1.CommonReq;
  * 冗长的if-else判断或者Switch-case
  */
 public class BadCase {
+    /**
+     * 提供一个RPC接口，要求对不同的调用方，采用不同的校验入参
+     *
+     * @param req
+     */
     void yourMethod(CommonReq req) {
         String serviceInfo = getServiceInfo();
         boolean checkRet = checkReq(req, serviceInfo);
