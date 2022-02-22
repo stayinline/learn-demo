@@ -20,11 +20,12 @@ public class TestDemo2 {
 //        test1();
 //        test2();
         test3();
+
+        executor.shutdown();
     }
 
     private static void test1() {
         MySemaphore1 semaphore = new MySemaphore1(10);
-
         for (int i = 0; i < 50; i++) {
             executor.execute(() -> {
                 try {
@@ -38,12 +39,10 @@ public class TestDemo2 {
             });
 
         }
-        executor.shutdown();
     }
 
     private static void test2() {
         MySemaphore2 semaphore = new MySemaphore2(10);
-
         for (int i = 0; i < 50; i++) {
             executor.execute(() -> {
                 try {
@@ -57,7 +56,6 @@ public class TestDemo2 {
             });
 
         }
-        executor.shutdown();
     }
 
 
@@ -76,7 +74,6 @@ public class TestDemo2 {
             });
 
         }
-        executor.shutdown();
     }
 
 }
