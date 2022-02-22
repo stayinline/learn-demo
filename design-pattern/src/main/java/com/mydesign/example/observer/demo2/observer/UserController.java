@@ -51,6 +51,7 @@ public class UserController {
      */
     public Long register(String telephone, String password) {
         // 1、初始化和注册观察者
+        // 正常情况下，这里不能每次调用都初始化一次，应该是全局只初始化一次
         List<RegObserver> observers = new ArrayList<>();
         observers.add(new RegNotificationObserver());
         observers.add(new RegPromotionObserver());

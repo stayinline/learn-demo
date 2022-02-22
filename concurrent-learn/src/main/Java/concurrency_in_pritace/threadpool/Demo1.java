@@ -17,6 +17,7 @@ public class Demo1 {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 1000, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<>(1000));
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.submit(() -> System.out.println("test"));
     }
 
     static class BoundedExecutor {
@@ -70,6 +71,21 @@ public class Demo1 {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+//        demo1();
+        demo2();
+    }
+
+    private static void demo2() throws InterruptedException {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 2, 10, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(1));
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        BoundedExecutor boundedExecutor = new BoundedExecutor(executor, 3);
+
+        for (int i = 0; i < 10; i++) {
+            boundedExecutor.submitTask1(() -> System.out.println("--11--"));
+        }
+
+        System.out.println("end");
     }
 }
