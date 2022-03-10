@@ -1,4 +1,4 @@
-package wait_notify;
+package wait_notify.printAB;
 
 /**
  * 用wait/notifyAll实现两个线程交替打印AB
