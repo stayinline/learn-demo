@@ -1,4 +1,4 @@
-package com.mydesign.example.decorator;
+package com.mydesign.example.decorator.demo1;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
