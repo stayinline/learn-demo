@@ -1,10 +1,10 @@
 package com.mydesign.example.decorator.demo2;
 
-public class RedddShapeDercorator extends ShapeDecorator {
+public class RedBorderShapeDercorator extends ShapeDecorator {
 
-   private Shape decoratorShape;
+    private Shape decoratorShape;
 
-    public RedddShapeDercorator(Shape decoratorShape) {
+    public RedBorderShapeDercorator(Shape decoratorShape) {
         super(decoratorShape);
     }
 
