@@ -17,8 +17,8 @@ public class MyReentrantLockBlockQueue<T> implements MyBlockQueue<T> {
     private volatile int size = 0;
 
     ReentrantLock lock = new ReentrantLock();
-    Condition notFull = lock.newCondition();
-    Condition notEmpty = lock.newCondition();
+    Condition full = lock.newCondition();
+    Condition empty = lock.newCondition();
 
     public MyReentrantLockBlockQueue(int cap) {
         queue = (T[]) new Object[cap];
@@ -30,13 +30,13 @@ public class MyReentrantLockBlockQueue<T> implements MyBlockQueue<T> {
         try {
             while (size == queue.length) {
                 System.out.println("队列满了，放不进去，要等");
-                notEmpty.await();
+                full.await();
             }
             queue[tail] = t;
             size++;
             tail = (tail + 1) % size;
             System.out.println("放入一个元素，e=" + t);
-            notFull.signalAll();
+            empty.signalAll();
         } finally {
             lock.unlock();
         }
@@ -49,7 +49,7 @@ public class MyReentrantLockBlockQueue<T> implements MyBlockQueue<T> {
         try {
             while (size == 0) {
                 System.out.println("队列为空，拿不到元素，要等");
-                notFull.await();
+                empty.await();
             }
             t = queue[head];
             size--;
@@ -59,7 +59,7 @@ public class MyReentrantLockBlockQueue<T> implements MyBlockQueue<T> {
                 head = (head + 1) % size;
             }
             System.out.println("拿走一个元素，e=" + t);
-            notEmpty.signalAll();
+            full.signalAll();
         } finally {
             lock.unlock();
         }
