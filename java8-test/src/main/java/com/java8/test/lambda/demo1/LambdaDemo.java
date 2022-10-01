@@ -10,7 +10,7 @@ public class LambdaDemo {
 
     public static void testReadFile() throws IOException {
         // 第四步：传递lambda，将要执行的"读取数据"这一行为，用lambda的方式，通过参数传递过去
-        String result = processFile((BufferedReader::readLine));
+        String result = processFile(BufferedReader::readLine);
         System.out.println(result);
     }
 
