@@ -18,6 +18,7 @@ public class TestDemo {
 
         long start2 = System.currentTimeMillis();
         test(queue2);
+
         long end2 = System.currentTimeMillis();
         System.out.println("ReentrantLock 实现用时：" + (end2 - start2));
 
