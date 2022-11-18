@@ -46,10 +46,6 @@ public class TestMain {
 
 
     public static void show2(Animal animal) {
-        if (null == animal) {
-            System.out.println("错误");
-        }
-
         /**
          * 注意这个eat 方法，是在父类中声明的.
          * Cat 对象的 animal 传递过来，就会去调用 Cat 的eat方法
@@ -69,6 +65,18 @@ public class TestMain {
         } else if (animal instanceof Dog) {
             ((Dog) animal).work();
         }
+    }
+
+    public static void show3(Animal animal) {
+        /**
+         * 注意这个eat 方法，是在父类中声明的.
+         * Cat 对象的 animal 传递过来，就会去调用 Cat 的eat方法
+         * Dog 对象的 animal 传递过来，就会去调用 Dog 的eat方法
+         *
+         * 我们不需要再 instanceof 来判断对象到底是哪个子类，就能直接调用该子类重写的方法。
+         * 这就是多态!!!!!
+         */
+        animal.eat();
     }
 
 }
