@@ -1,5 +1,8 @@
 package com.mydesign.example;
 
+import com.mydesign.example.template_method.ClassA;
+import com.mydesign.example.template_method.SubClassA;
+
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,8 +24,8 @@ public class Test {
 //    }
 
     public static void main(String[] args) {
-        System.out.println("asda");
 
-
+        SubClassA subClassA=new SubClassA(new ClassA());
+        subClassA.call();
     }
 }

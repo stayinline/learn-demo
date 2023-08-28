@@ -22,7 +22,7 @@ public abstract class AbstractParentClass {
         method1();
 
 
-        method12();
+        method2();
     }
 
     /**
@@ -31,6 +31,10 @@ public abstract class AbstractParentClass {
      */
     protected abstract void method1();
 
-    protected abstract void method12();
+    protected abstract void method2();
+    protected abstract void method3();
+
+    protected abstract void method(ICallBack callBack);
+
 
 }
