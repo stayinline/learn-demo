@@ -70,6 +70,11 @@ public class Test {
         String value = "这是第1个CompletableFuture在执行";
         System.out.println(value + "s1的长度是：" + value.length());
         System.out.println("s1.substring(8)：" + value.substring(8));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return value;
     });
 
@@ -94,6 +99,15 @@ public class Test {
         // 注意这里是combineFuture执行get方法，要在这个结果上等才是期望的效果
         String result = combineFuture.get();
         System.out.println("结果是:" + result);
+
+        /**
+         * 这是第1个CompletableFuture在执行s1的长度是：25
+         * s1.substring(8)：pletableFuture在执行
+         * 这是第2个CompletableFuture在执行
+         * (这里会等待3秒钟，然后紧接着打印下一行的内容)
+         * 结果是:pletableFuture在执行
+         */
+
 
         /*
          * 输出：
