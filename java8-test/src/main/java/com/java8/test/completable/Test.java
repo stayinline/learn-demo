@@ -2,12 +2,10 @@ package com.java8.test.completable;
 
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Test {
 
@@ -66,28 +64,30 @@ public class Test {
         future1.thenAccept(c);
     }
 
-    CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
-        String value = "这是第1个CompletableFuture在执行";
-        System.out.println(value + "s1的长度是：" + value.length());
-        System.out.println("s1.substring(8)：" + value.substring(8));
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return value;
-    });
-
-    Supplier<Integer> s = () -> {
-        System.out.println("这是第2个CompletableFuture在执行");
-        return 8;
-    };
-    CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(s);
 
     /**
      * 汇聚关系
      */
     public void test3() throws ExecutionException, InterruptedException {
+
+
+        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
+            String value = "这是第1个CompletableFuture在执行";
+            System.out.println(value + "s1的长度是：" + value.length());
+            System.out.println("s1.substring(8)：" + value.substring(8));
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return value;
+        });
+
+        Supplier<Integer> s = () -> {
+            System.out.println("这是第2个CompletableFuture在执行");
+            return 8;
+        };
+        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(s);
 
 
         // 从s1的结果中取[b2,end]的子串
@@ -135,7 +135,6 @@ public class Test {
 
     }
 
-
     static void thenCombineExample() {
         String original = "Message";
         CompletableFuture cf = CompletableFuture.completedFuture(original)
@@ -157,13 +156,49 @@ public class Test {
         System.out.println("result2=" + result2);
     }
 
+    public void test4() throws ExecutionException, InterruptedException {
+
+        CompletableFuture<String> futureFirst = CompletableFuture.supplyAsync(() -> {
+            String value = "这是第1个CompletableFuture在执行";
+            System.out.println(value);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return value;
+        });
+
+
+        Function<String, CompletableFuture<String>> function = (a) -> {
+            String value = "这是第2个CompletableFuture在执行";
+            return CompletableFuture.supplyAsync(()->{
+                System.out.println(value);
+                return value;
+            });
+        };
+
+
+//        CompletableFuture<String> future = futureFirst.thenCompose(function);
+        CompletableFuture<String> future = futureFirst.thenComposeAsync(function);
+
+        String result = future.get();
+
+        System.out.println("结果是:" + result);
+    }
+
+
+
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        test();
 //        System.out.println(Runtime.getRuntime().availableProcessors());
 //        test2();
 //        thenCombineExample();
 
-        new Test().test3();
+//        new Test().test3();
+
+        new Test().test4();
     }
 
 
