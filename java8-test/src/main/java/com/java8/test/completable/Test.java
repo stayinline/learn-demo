@@ -4,6 +4,7 @@ package com.java8.test.completable;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -65,31 +66,58 @@ public class Test {
         future1.thenAccept(c);
     }
 
+    CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
+        String value = "这是第1个CompletableFuture在执行";
+        System.out.println(value + "s1的长度是：" + value.length());
+        System.out.println("s1.substring(8)：" + value.substring(8));
+        return value;
+    });
+
+    Supplier<Integer> s = () -> {
+        System.out.println("这是第2个CompletableFuture在执行");
+        return 8;
+    };
+    CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(s);
+
     /**
      * 汇聚关系
      */
-    public static void test3() throws ExecutionException, InterruptedException {
+    public void test3() throws ExecutionException, InterruptedException {
 
-        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
-            String value = "这是第1个CompletableFuture在执行";
-            System.out.println(value + "长度是：" + value.length());
-            System.out.println("substring(8)：" + value.substring(8));
-            return value;
-        });
 
-        Supplier<Integer> s = () -> {
-            System.out.println("这是第2个CompletableFuture在执行");
-            return 8;
-        };
-        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(s);
-        CompletableFuture<Supplier<Integer>> future = CompletableFuture.completedFuture(s);
-
+        // 从s1的结果中取[b2,end]的子串
         BiFunction<String, Integer, String> function = (s1, b2) -> s1.substring(b2);
 
-        future1.thenCombine(future2, function);
+        // 意思是将future1的执行结果，传递给future2，并执行function指定的具体操作
+        CompletableFuture<String> combineFuture = future1.thenCombine(future2, function);
 
-        String result = future1.get();
+        // 注意这里是combineFuture执行get方法，要在这个结果上等才是期望的效果
+        String result = combineFuture.get();
         System.out.println("结果是:" + result);
+
+        /*
+         * 输出：
+         * 这是第1个CompletableFuture在执行s1的长度是：25
+         * s1.substring(8)：pletableFuture在执行
+         * 这是第2个CompletableFuture在执行
+         * 结果是:pletableFuture在执行
+         */
+
+        // thenAcceptBoth的效果是：等future1和future2都执行完，再执行function的操作，
+        // 所以function接受两个参数，分别代表future1、future2的执行结果，
+        // 这里把两个future的结果，打印一遍
+        BiConsumer<String, Integer> c = (p1, p2) -> System.out.println("future1、future2的执行结果，p1=" + p1 + ",p2=" + p2);
+
+        CompletableFuture result2 = future1.thenAcceptBoth(future2, c);
+        result2.get();
+        /*
+         * future1、future2的执行结果，p1=这是第1个CompletableFuture在执行,p2=8
+         */
+
+
+        Runnable r3 = () -> System.out.println("这是第3个future在执行");
+        CompletableFuture<Void> result3 = future1.runAfterBothAsync(future2, r3);
+        result3.get();
 
     }
 
@@ -121,7 +149,7 @@ public class Test {
 //        test2();
 //        thenCombineExample();
 
-        test3();
+        new Test().test3();
     }
 
 
