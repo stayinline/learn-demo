@@ -22,6 +22,7 @@
       <module name="learn-demo" target="1.8" />
       <module name="production" target="1.8" />
       <module name="spring-learn" target="1.8" />
+      <module name="tdd-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
