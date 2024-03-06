@@ -12,6 +12,7 @@
         <module>concurrent-learn</module>
         <module>production</module>
         <module>java8-test</module>
+        <module>my-clean-code</module>
     </modules>
     <packaging>pom</packaging>
 

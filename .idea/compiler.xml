@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="production" />
+        <module name="my-clean-code" />
         <module name="concurrent-learn" />
         <module name="java8-test" />
         <module name="design-pattern" />
@@ -20,6 +21,7 @@
       <module name="ioc-learn" target="1.8" />
       <module name="java8-test" target="1.8" />
       <module name="learn-demo" target="1.8" />
+      <module name="my-clean-code" target="1.8" />
       <module name="production" target="1.8" />
       <module name="spring-learn" target="1.8" />
       <module name="tdd-demo" target="1.8" />
