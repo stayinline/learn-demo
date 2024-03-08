@@ -1,5 +1,7 @@
 package com.my.clean.code.first_name;
 
+import java.util.ArrayList;
+
 public class First {
 
 
@@ -14,9 +16,8 @@ public class First {
     }
 
 
-
     public UserResp testParam(UserReq userReq) {
 
-        return new UserResp();
+        return new UserResp(userReq.getName(), userReq.getUid(), new ArrayList<>());
     }
 }
