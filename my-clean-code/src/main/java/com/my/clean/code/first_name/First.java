@@ -20,4 +20,11 @@ public class First {
 
         return new UserResp(userReq.getName(), userReq.getUid(), new ArrayList<>());
     }
+
+    public boolean login(UserReq req) {
+        if (3 >= req.getName().length()) {
+            return true;
+        }
+        return false;
+    }
 }
